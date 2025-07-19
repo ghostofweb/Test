@@ -61,3 +61,12 @@ Please `npm i` to install packages.
 - If token is invalid or missing, returns `401 Unauthorized`.
 
 ---
+
+
+How Cookies & JWT Tokens Work Here
+
+Instead of sending the JWT token to the frontend and asking the frontend to store it, we store it in an HTTP-only cookie — this is safer because JavaScript in the browser can’t access it (which protects it from XSS attacks).
+
+Every time the user makes a request, the browser automatically sends this cookie, and our backend reads it. If the token is valid, the request goes through. Otherwise, it's blocked. This lets us manage user sessions without building a whole frontend for login/logout.
+
+
